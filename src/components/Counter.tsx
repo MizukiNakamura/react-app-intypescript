@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const Counter: React.FC<{}> = () => {
 	const initialValue = 0;
@@ -14,6 +14,12 @@ const Counter: React.FC<{}> = () => {
 		setValue(initialValue);
 	};
 
+	const renderTimes = useRef<number>(0);
+	useEffect(() => {
+		console.log('effect');
+		renderTimes.current = renderTimes.current + 1;
+	});
+
 	return (
 		<div>
 			{value}
@@ -21,6 +27,8 @@ const Counter: React.FC<{}> = () => {
 			<button onClick={handleClickPlus}>+</button>
 			<button onClick={handleClickMinus}>-</button>
 			<button onClick={handleClickReset}>リセット</button>
+
+			<div>レンダー回数：{renderTimes.current} 回</div>
 		</div>
 	);
 };

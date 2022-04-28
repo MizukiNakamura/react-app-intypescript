@@ -19,6 +19,10 @@ const Counter: React.FC<{}> = () => {
 		console.log('effect');
 		renderTimes.current = renderTimes.current + 1;
 	});
+	const ref = useRef<HTMLInputElement>(null!);
+	const handleClickFocus = () => {
+		ref.current.focus();
+	};
 
 	return (
 		<div>
@@ -29,6 +33,12 @@ const Counter: React.FC<{}> = () => {
 			<button onClick={handleClickReset}>リセット</button>
 
 			<div>レンダー回数：{renderTimes.current} 回</div>
+
+			<div>
+				<input type="text" ref={ref} />
+
+				<button onClick={handleClickFocus}>focus input</button>
+			</div>
 		</div>
 	);
 };

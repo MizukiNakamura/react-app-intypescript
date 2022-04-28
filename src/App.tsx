@@ -1,10 +1,10 @@
 import React from 'react';
-import Counter from './components/Counter';
+import CounterWithReducer from './components/CounterWithReducer';
 
 const App: React.FunctionComponent<{}> = () => {
 	return (
 		<div>
-			<Counter />
+			<CounterWithReducer />
 		</div>
 	);
 };
